@@ -1,0 +1,103 @@
+:root {
+  --page: #f7fbff;
+  --white: #ffffff;
+  --pale-blue: #e3f2fd;
+  --accent: #a8d8f0;
+  --ink: #24384b;
+  --muted: #66788a;
+  --line: #d9ebf6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--page);
+  font-family: "Noto Sans Thai", Tahoma, sans-serif;
+}
+
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 64px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.nav-side { color: var(--muted); font-size: 0.9rem; }
+.nav-week { text-align: right; }
+.brand { color: #1e4f6d; font-size: 1.02rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; }
+
+main { padding: 66px 24px 48px; }
+.picker { display: grid; justify-items: center; }
+.intro { text-align: center; margin-bottom: 30px; }
+.eyebrow { margin: 0 0 6px; color: #4f88a8; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 6px; font-size: clamp(1.7rem, 4vw, 2.2rem); line-height: 1.25; }
+.intro > p:last-child { margin-bottom: 0; color: var(--muted); font-size: 0.96rem; }
+
+.food-card {
+  width: min(100%, 430px);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgb(61 116 150 / 8%);
+}
+
+.image-wrap { position: relative; aspect-ratio: 16 / 10; background: var(--pale-blue); }
+#food-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+.image-fallback { position: absolute; inset: 0; display: grid; place-content: center; gap: 8px; text-align: center; color: #52738b; background: linear-gradient(135deg, #e3f2fd, #f7fbff); }
+/* ให้ attribute hidden ทำงานเหนือ display:grid ของ fallback */
+.image-fallback[hidden] { display: none; }
+.image-fallback span { font-size: 2.25rem; }
+.image-fallback p { margin: 0; font-size: 0.85rem; }
+
+.card-content { padding: 23px 24px 25px; }
+h2 { margin-bottom: 7px; font-size: 1.45rem; line-height: 1.35; }
+.description { min-height: 48px; margin-bottom: 17px; color: var(--muted); font-size: 0.91rem; line-height: 1.7; }
+.price { display: inline-block; margin-bottom: 20px; padding: 5px 12px; color: #265776; background: var(--pale-blue); border-radius: 999px; font-size: 0.9rem; font-weight: 600; }
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 48px;
+  color: #173f5a;
+  background: var(--accent);
+  border: 1px solid #91cbe8;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+button:hover { background: #91cce9; transform: translateY(-1px); box-shadow: 0 5px 12px rgb(63 133 169 / 18%); }
+button:focus-visible { outline: 3px solid #427b9d; outline-offset: 3px; }
+
+.is-changing { animation: soften 230ms ease; }
+@keyframes soften { 50% { opacity: 0.45; transform: translateY(3px); } }
+
+@media (max-width: 480px) {
+  .navbar nav { min-height: 54px; padding: 0 16px; }
+  .nav-side { font-size: 0.75rem; }
+  .brand { font-size: 0.83rem; }
+  main { padding: 42px 16px 32px; }
+  .intro { margin-bottom: 23px; }
+  .card-content { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

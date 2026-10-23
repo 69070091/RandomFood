@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FOODPICKER ITF เว็บไซต์สุ่มเมนูอาหาร" />
+    <title>FOODPICKER ITF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <nav aria-label="แถบนำทางหลัก">
+        <span class="nav-side">69070091</span>
+        <a class="brand" href="index.html" aria-label="FOODPICKER ITF หน้าแรก">FOODPICKER ITF</a>
+        <span class="nav-side nav-week">Week15</span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="picker" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">FOOD PICKER</p>
+          <h1 id="page-title">วันนี้กินอะไรดี?</h1>
+          <p>ให้เราช่วยเลือกเมนูอร่อยให้คุณ</p>
+        </div>
+
+        <!-- ข้อมูลในการ์ดถูกเปลี่ยนพร้อมกันด้วย JavaScript -->
+        <article class="food-card" aria-live="polite">
+          <div class="image-wrap">
+            <img id="food-image" src="" alt="" />
+            <div class="image-fallback" id="image-fallback" hidden aria-hidden="true">
+              <span>🍽️</span><p>ไม่สามารถแสดงรูปภาพได้</p>
+            </div>
+          </div>
+          <div class="card-content">
+            <h2 id="food-name"></h2>
+            <p id="food-description" class="description"></p>
+            <p class="price"><span id="food-price"></span> บาท</p>
+            <button id="random-button" type="button">สุ่มเมนูอาหาร <span aria-hidden="true">↻</span></button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
